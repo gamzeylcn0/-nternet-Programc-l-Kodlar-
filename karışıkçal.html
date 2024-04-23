@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            background-image: url('https://mrwallpaper.com/images/high/pink-headphones-on-a-pink-and-blue-background-xf1pnrrvx8ay4dol.webp');
+
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .nav li {
+            float: right;
+            list-style: none;
+        }
+
+        .nav a {
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+            font-size: 1rem;
+            font-weight: 550;
+            display: block;
+            padding: 5px 35px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .content {
+            width: 100%;
+            position: absolute;
+            top: 45%;
+        }
+
+        .left-col {
+            margin-left: 11%;
+        }
+
+        .left-col h1 {
+            font-size: 50px;
+            color: #B6DDD8;
+            text-shadow: 1px 1px 1px #333;
+        }
+
+        .right-col {
+            float: right;
+            margin-right: 10%;
+            margin-top: -5%;
+            display: flex;
+            align-items: center;
+            position: relative; 
+        }
+
+        .right-col p {
+            font-size: 21px;
+            color: black;
+            font-weight: 650;
+            margin-right: 20px;
+            margin-bottom: 10px; 
+            position: absolute; 
+            top: -40px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+        }
+
+         #songName {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px; 
+        }
+        
+        
+        .btn {
+            margin-top: 50px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #FCC1BD; 
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px; 
+        }
+
+        .btn:hover {
+            background-color: #FCC1BD;
+        }
+
+        #songName { 
+            font-size: 25px;
+            color: black;
+            font-weight: 650;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        
+    </div>
+
+    <div class="content">
+        <div class="left-col">
+            <h1>RASTGELE<br>ŞARKI ÇAL</h1>
+        </div>
+
+        <div class="right-col">
+            <button class="btn" onclick="playRandomSong()">Rastgele şarkı için tıkla</button>
+            <button class="btn" onclick="pauseSong()">Şarkıyı durdur</button>
+            <p id="songName"></p> 
+        </div>
+    </div>
+
+    <audio id="mysound">
+    </audio>
+
+    <script>
+        var songs = [
+            {
+                name: "Dubstep", 
+                url: "https://www.bensound.com/bensound-music/bensound-dubstep.mp3"
+            },
+            {
+                name: "Funny Song",
+                url: "https://www.bensound.com/bensound-music/bensound-funnysong.mp3"
+            },
+            {
+                name: "Tomorrow",
+                url: "https://www.bensound.com/bensound-music/bensound-tomorrow.mp3"
+            },
+            {
+                name: "Energy",
+                url: "https://www.bensound.com/bensound-music/bensound-energy.mp3"
+            },
+            {
+                name: "Happy Rock",
+                url: "https://www.bensound.com/bensound-music/bensound-happyrock.mp3"
+            },
+            {
+                name: "Sunny",
+                url: "https://www.bensound.com/bensound-music/bensound-sunny.mp3"
+            },
+            {
+                name: "Dreams",
+                url: "https://www.bensound.com/bensound-music/bensound-dreams.mp3"
+            },
+            {
+                name: "Summer",
+                url: "https://www.bensound.com/bensound-music/bensound-summer.mp3"
+            },
+            {
+                name: "Ukulele",
+                url: "https://www.bensound.com/bensound-music/bensound-ukulele.mp3"
+            },
+            {
+                name: "Piano Moment",
+                url: "https://www.bensound.com/bensound-music/bensound-pianomoment.mp3"
+            }
+
+        ];
+
+        function playRandomSong() {
+            var randomIndex = Math.floor(Math.random() * songs.length);
+            var song = songs[randomIndex];
+            var audio = document.getElementById("mysound");
+            audio.src = song.url;
+            audio.play();
+            document.getElementById("songName").innerText = "Now Playing: " + song.name;
+        }
+
+        function pauseSong() {
+            var audio = document.getElementById("mysound");
+            audio.pause();
+        }
+        
+    </script>
+</body>
+</html>
